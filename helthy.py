@@ -22,12 +22,11 @@ def mixerloop(file, stoper):
             break
 
 def log(msg):
-    with open("logs.txt", "a") as f:
+    with open("logs/logs.txt", "a") as f:
         f.write(f"{msg} {datetime.now()} \n")
 
 
 if __name__ == '__main__':
-    # mixerloop("water.mp3","done")
     init_water = time()
     init_eyes = time()
     init_exercise = time()
@@ -38,20 +37,20 @@ if __name__ == '__main__':
         if time() - init_water > watersec:
             print("Drink some water.")
             print("Enter 'drank' to stop alarm.")
-            mixerloop("water.mp3","drank")
+            mixerloop("sounds/water.mp3","drank")
             init_water = time()
             log("Drank water at ")
 
         if time() - init_eyes > eyessec:
             print("Do some eyes exercise.")
             print("Enter 'doney' to stop alarm.")
-            mixerloop("eyes.mp3","doney")
+            mixerloop("sounds/eyes.mp3","doney")
             init_eyes = time()
             log("Eyes exercise at ")
 
         if time() - init_exercise > exercisesec:
             print("Do some exercise.")
             print("Enter 'donez' to stop alarm.")
-            mixerloop("physical.mp3","donez")
+            mixerloop("sounds/physical.mp3","donez")
             init_exercise = time()
             log("Exercise done at ")
